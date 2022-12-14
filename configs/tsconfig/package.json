@@ -1,0 +1,13 @@
+{
+  "name": "@triprint/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"./**/*.json\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

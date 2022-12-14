@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "triprint",
+  "description": "TRIPRINT",
+  "author": "sangrimlee <contact@sangrim.dev>",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "configs/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-triprint": "*",
+    "prettier": "^2.8.1",
+    "turbo": "latest",
+    "typescript": "4.7.4"
+  },
+  "packageManager": "yarn@1.22.19"
+}

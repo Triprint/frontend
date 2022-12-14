@@ -1,0 +1,5 @@
+{
+  "extends": "@triprint/tsconfig/react-library.json",
+  "include": ["stories"],
+  "exclude": ["dist", "node_modules"]
+}

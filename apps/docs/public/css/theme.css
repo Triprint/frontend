@@ -1,0 +1,40 @@
+@import './fonts.css';
+
+html,
+body {
+  font-size: 16px;
+  font-family: 'Pretendard';
+}
+
+h1 {
+  font-weight: 700 !important;
+  margin: 32px 0 16px !important;
+}
+
+/* Main */
+div[role='main'] {
+  border: 1px solid #eaebee;
+  box-shadow: none;
+}
+
+/* Sidebar */
+
+.sidebar-header img {
+  width: 100%;
+  max-width: 144px;
+  object-fit: cover;
+}
+
+.sidebar-container .sidebar-item {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.sidebar-container svg {
+  color: #212124;
+  width: 1rem;
+  height: 1rem;
+}
