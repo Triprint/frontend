@@ -1,0 +1,22 @@
+{
+  "name": "@triprint/prettier-config",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf node_modules"
+  },
+  "peerDependencies": {
+    "prettier": ">=2"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": "@triprint/prettier-config"
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "@triprint/tsconfig/node16.json",
+  "include": ["vite.config.ts"]
+}

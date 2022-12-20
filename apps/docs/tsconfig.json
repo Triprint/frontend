@@ -1,0 +1,5 @@
+{
+  "extends": "@triprint/tsconfig/vite.json",
+  "include": ["storybook.d.ts", ".storybook", "src"],
+  "exclude": ["dist", "node_modules"]
+}
