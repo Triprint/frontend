@@ -7,11 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install dependencies
+      - name: Install dependencies & Build storybook
         run: yarn
-
-      - uses: actions/checkout@v1
-      - name: Build Storybook
         run: yarn run build:docs
 
       - name: Publish to Chromatic
