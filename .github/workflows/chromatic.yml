@@ -1,0 +1,19 @@
+name: 'Chromatic'
+
+on: push
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies & Build storybook
+        run: |
+          yarn
+          yarn run build:docs
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          storybookBuildDir: apps/docs/storybook-static
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

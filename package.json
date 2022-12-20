@@ -11,10 +11,14 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:admin": "yarn build --filter=admin",
+    "build:client": "yarn build --filter=client",
+    "build:docs": "yarn build --filter=docs",
     "dev": "turbo run dev --parallel",
-    "start:admin": "turbo run start --filter=admin",
-    "start:client": "turbo run start --filter=client",
-    "start:docs": "turbo run start --filter=docs",
+    "start": "turbo run start",
+    "start:admin": "yarn start --filter=admin",
+    "start:client": "yarn start --filter=client",
+    "start:docs": "yarn start --filter=docs",
     "lint": "turbo run lint",
     "format": "turbo run format",
     "clean": "turbo run clean"
