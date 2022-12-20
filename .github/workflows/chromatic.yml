@@ -14,6 +14,4 @@ jobs:
         uses: chromaui/action@v1
         with:
           buildScriptName: build:docs
-          storybookBuildDir: apps/docs/storybook-static
-          storybookConfigDir: apps/docs/.storybook
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
