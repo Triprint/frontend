@@ -1,0 +1,21 @@
+{
+  "name": "@triprint/tsconfig",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    "base.json",
+    "next.json",
+    "node16.json",
+    "react-library.json",
+    "vite.json"
+  ],
+  "scripts": {
+    "clean": "rimraf .turbo node_modules"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
