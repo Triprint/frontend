@@ -11,6 +11,7 @@
     "clean": "rimraf .turbo dist node_modules"
   },
   "dependencies": {
+    "@triprint/icons": "*",
     "@triprint/ui": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -12,6 +12,7 @@
     "clean": "rimraf .turbo node_modules storybook-static"
   },
   "dependencies": {
+    "@triprint/icons": "*",
     "@triprint/tokens": "*",
     "@triprint/ui": "*",
     "react": "^18.2.0",
