@@ -7,6 +7,7 @@ import {
 
 import { breakPoint } from '@triprint/tokens';
 
+import './font.css';
 import './reset.css';
 import { baseVars, colorVars } from './vars.css';
 
