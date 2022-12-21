@@ -87,4 +87,7 @@ async function main() {
   await buildIcons();
 }
 
-main();
+console.log('🔨 Build start...');
+main().then(() => {
+  console.log('🚀 Build finished.');
+});
