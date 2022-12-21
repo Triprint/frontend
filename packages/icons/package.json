@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "node scripts/build.js",
+    "dev": "nodemon -w src -e svg -x \"node scripts/build.js\"",
     "lint": "TIMING=1 eslint \"scripts/**/*.js\"",
     "format": "prettier --write \"scripts/**/*.js\"",
     "clean": "rimraf .turbo dist node_modules"
@@ -31,6 +32,7 @@
     "@triprint/eslint-config": "*",
     "@triprint/tsconfig": "*",
     "eslint": "^8.29.0",
+    "nodemon": "^2.0.20",
     "rimraf": "^3.0.2"
   }
 }
