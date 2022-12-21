@@ -1,0 +1,26 @@
+{
+  "name": "@triprint/icons",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "lint": "TIMING=1 eslint \"scripts/**/*.js\"",
+    "format": "prettier --write \"scripts/**/*.js\"",
+    "clean": "rimraf .turbo dist node_modules"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/plugin-transform-react-jsx": "^7.19.0",
+    "@svgr/core": "^6.5.1",
+    "@triprint/eslint-config": "*",
+    "@triprint/tsconfig": "*",
+    "eslint": "^8.29.0",
+    "rimraf": "^3.0.2"
+  }
+}
