@@ -16,8 +16,6 @@ import {
   zIndex,
 } from '@triprint/tokens';
 
-import { mapVarName } from '../lib';
-
 const base = {
   fontSize,
   fontWeight,
@@ -31,6 +29,10 @@ const base = {
   negativeSpace,
   relativeSpace,
   boxShadow,
+};
+
+const mapVarName = (_value: string | null, path: string[]) => {
+  return path.join('-').replace(/\./g, '_').replace(/\//g, '__');
 };
 
 export const baseVars = createGlobalThemeContract(base, mapVarName);
