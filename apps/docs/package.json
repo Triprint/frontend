@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "start-storybook --no-open -p 3003",
     "build": "build-storybook",
-    "start": "http-server storybook-static",
+    "start": "http-server storybook-static -p 4003",
     "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx,md,mdx}\"",
     "format": "prettier --write \"src/**/*.{ts,tsx,md,mdx}\"",
     "clean": "rimraf .turbo node_modules storybook-static"
