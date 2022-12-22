@@ -33,7 +33,7 @@ const SocialButton = React.forwardRef((props, forwardedRef) => {
       {...restProps}
     >
       <SocialIcon width={24} height={24} />
-      <>{children}</>
+      {variant !== 'square' && children}
     </Component>
   );
 }) as PolymorphicSocialButton;
