@@ -1,0 +1,24 @@
+import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
+
+# Social Button
+
+OAuth를 활용한 소셜 로그인을 위한 버튼
+
+`카카오`, `네이버`, `구글`, `페이스북`을 지원
+
+<Canvas>
+  <Story id="components-social-button--base" />
+</Canvas>
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Variant
+
+버튼 모양에 따른 옵션
+
+- base (default): 기본적인 버튼 모양
+- square: 아이콘만 보여지는 모양 (children을 무시)
+
+<Canvas withSource="none">
+  <Story id="components-social-button--variant" />
+</Canvas>
