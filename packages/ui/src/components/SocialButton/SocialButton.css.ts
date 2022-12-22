@@ -33,6 +33,15 @@ export const socialButtonRecipe = recipe({
         color: '#ffffff',
         backgroundColor: '#02C759',
       },
+      google: {
+        color: '#505050',
+        backgroundColor: '#ffffff',
+        boxShadow: 'inset 0 0 0 1px #eaeaea',
+      },
+      facebook: {
+        color: '#ffffff',
+        backgroundColor: '#1877f2',
+      },
     },
     variant: {
       base: sprinkles({ borderRadius: 'xl', paddingX: '6', paddingY: '3.5' }),
