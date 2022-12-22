@@ -10,6 +10,7 @@
     "clean": "rimraf .next .turbo node_modules"
   },
   "dependencies": {
+    "@triprint/icons": "*",
     "@triprint/ui": "*",
     "next": "^13.0.7",
     "react": "^18.2.0",
