@@ -1,0 +1,17 @@
+import { ArgsTable, Canvas, Source, Story, PRIMARY_STORY } from '@storybook/addon-docs';
+
+# Icon
+
+<Source language="javascript" format code={"import { HeartIcon } from '@triprint/icons'"} />
+
+<Canvas mdxSource="<HeartIcon />" isExpanded>
+  <Story id="components-icon--icon" />
+</Canvas>
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## 모든 아이콘
+
+<Canvas withSource="none">
+  <Story id="components-icon--all-icons" />
+</Canvas>
