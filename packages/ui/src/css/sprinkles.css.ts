@@ -7,11 +7,21 @@ import {
 
 import { breakPoint } from '@triprint/tokens';
 
+import './font.css';
 import './reset.css';
 import { baseVars, colorVars } from './vars.css';
 
 const flexibility = [0, 1] as const;
 const flexAlignment = ['flex-start', 'center', 'flex-end', 'stretch'] as const;
+
+const gridTemplate = {
+  1: 'repeat(1, minmax(0, 1fr))',
+  2: 'repeat(2, minmax(0, 1fr))',
+  3: 'repeat(3, minmax(0, 1fr))',
+  4: 'repeat(4, minmax(0, 1fr))',
+  5: 'repeat(5, minmax(0, 1fr))',
+  6: 'repeat(6, minmax(0, 1fr))',
+};
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -50,7 +60,11 @@ const responsiveProperties = defineProperties({
     justifySelf: flexAlignment,
     justifyContent: [...flexAlignment, 'space-around', 'space-between'],
     gap: baseVars.space,
+    rowGap: baseVars.space,
+    columnGap: baseVars.space,
 
+    /* Grid */
+    gridTemplateColumns: gridTemplate,
     /* Text */
     fontSize: {
       inherit: 'inherit',
