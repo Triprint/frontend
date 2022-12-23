@@ -18,7 +18,7 @@ const Text = React.forwardRef((props, forwardedRef) => {
   const {
     as: Comp = 'span',
     className,
-    block,
+
     size,
     color,
     weight,
@@ -29,7 +29,7 @@ const Text = React.forwardRef((props, forwardedRef) => {
   return (
     <Comp
       className={clsx(
-        textRecipe({ block, size, color, lineClamp, underline }),
+        textRecipe({ size, color, lineClamp, underline }),
         sprinkles({ fontWeight: weight }),
         className,
       )}

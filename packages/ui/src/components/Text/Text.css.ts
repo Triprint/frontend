@@ -4,10 +4,6 @@ import { sprinkles } from '../../css';
 
 export const textRecipe = recipe({
   variants: {
-    block: {
-      true: sprinkles({ display: 'block' }),
-      false: sprinkles({ display: 'inline-block' }),
-    },
     underline: {
       true: {
         textDecoration: 'underline',
