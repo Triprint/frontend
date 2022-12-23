@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
+
+# Text
+
+<Canvas withToolbar withSource="open">
+  <Story id="components-text--base" />
+</Canvas>
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## 크기
+
+- **2xs**: 0.625rem
+- **xs**: 0.75rem
+- **sm**: 0.875rem
+- **base**: 1rem
+- **lg**: 1.125rem
+- **xl**: 1.25rem
+- **2xl**: 1.5rem
+- **3xl**: 1.875rem
+- **4xl**: 2.25rem
+- **5xl**: 3rem
+- **6xl**: 3.75rem
+
+<Canvas withSource="none">
+  <Story id="components-text--size" />
+</Canvas>
+
+## 굵기
+
+- **regular**: 400
+- **medium**: 500
+- **semibold**: 600
+- **bold**: 700
+
+<Canvas withSource="none">
+  <Story id="components-text--weight" />
+</Canvas>
+
+## 색
+
+- **base**: 기본 색
+- **subdued**: 약간 밝은 색
+- **inverse**: 반대 색
+- **primary**: 브랜드 색
+- **error**: 에러 색
+
+<Canvas withSource="none">
+  <Story id="components-text--color" />
+</Canvas>
