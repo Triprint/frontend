@@ -1,4 +1,3 @@
-import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { sprinkles } from '../../css';
@@ -11,7 +10,6 @@ export const buttonRecipe = recipe({
       fontWeight: 'semibold',
       alignItems: 'center',
       justifyContent: 'center',
-      lineHeight: '1',
       transitionProperty: 'colors',
       transitionTimingFunction: 'easeIn',
       transitionDuration: '150',
@@ -49,31 +47,31 @@ export const buttonRecipe = recipe({
     size: {
       sm: sprinkles({
         fontSize: 'sm',
+        lineHeight: 'sm',
         paddingX: '2.5',
-        paddingY: '2.5',
-        borderRadius: 'xl',
-        minHeight: '8',
+        paddingY: '1.5',
+        borderRadius: 'lg',
       }),
       md: sprinkles({
         fontSize: 'sm',
+        lineHeight: 'sm',
         paddingX: '3',
-        paddingY: '3',
+        paddingY: '2',
         borderRadius: 'xl',
-        minHeight: '10',
       }),
       lg: sprinkles({
         fontSize: 'base',
+        lineHeight: 'base',
         paddingX: '4',
-        paddingY: '4',
-        borderRadius: '2xl',
-        minHeight: '12',
+        paddingY: '2.5',
+        borderRadius: 'xl',
       }),
       xl: sprinkles({
-        fontSize: 'lg',
-        paddingX: '5',
-        paddingY: '5',
-        borderRadius: '3xl',
-        minHeight: '14',
+        fontSize: 'base',
+        lineHeight: 'base',
+        paddingX: '6',
+        paddingY: '3.5',
+        borderRadius: 'xl',
       }),
     },
     fullWidth: {
