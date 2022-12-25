@@ -43,6 +43,13 @@ export const buttonRecipe = recipe({
           hover: 'hoverPrimaryContainer',
         },
       }),
+      text: sprinkles({
+        color: 'onSurface',
+        backgroundColor: {
+          base: 'transparent',
+          hover: 'surface',
+        },
+      }),
     },
     size: {
       sm: sprinkles({
