@@ -1,18 +1,22 @@
 import clsx, { ClassValue } from 'clsx';
 import React from 'react';
 
-import { buttonRecipe, buttonTextStyle, ButtonVariants, loadingIconStyle } from './Button.css';
+import { LoadingIcon } from '@triprint/icons';
+
+import { buttonRecipe, buttonTextRecipe, ButtonVariants, loadingIconStyle } from './Button.css';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   ButtonVariants & {
     children?: React.ReactNode;
     isLoading?: boolean;
     className?: ClassValue;
+    left?: React.ReactNode;
+    right?: React.ReactNode;
   };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { variant, size, className, isLoading, disabled, fullWidth, children, ...props },
+    { variant, size, className, isLoading, disabled, fullWidth, children, left, right, ...props },
     forwardedRef,
   ) => {
     return (
@@ -22,46 +26,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isLoading || disabled}
         {...props}
       >
-        {isLoading && <LoadingIcon />}
-        <span className={clsx({ [buttonTextStyle]: isLoading })}>{children}</span>
+        {isLoading && (
+          <LoadingIcon className={loadingIconStyle} width={24} height={24} title="Loading Icon" />
+        )}
+        <div className={clsx(buttonTextRecipe({ isLoading, size }))}>
+          {left}
+          {children}
+          {right}
+        </div>
       </button>
     );
   },
-);
-
-const LoadingIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    style={{
-      shapeRendering: 'auto',
-    }}
-    className={loadingIconStyle}
-    viewBox="0 0 100 100"
-    preserveAspectRatio="xMidYMid"
-    width="1.5rem"
-    height="1.5rem"
-    aria-labelledby="로딩 아이콘"
-  >
-    <title>로딩 아이콘</title>
-    <circle
-      cx={50}
-      cy={50}
-      fill="none"
-      stroke="#ff385c"
-      strokeWidth={8}
-      r={24}
-      strokeDasharray="112 40"
-    >
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        repeatCount="indefinite"
-        dur="1s"
-        values="0 50 50;360 50 50"
-        keyTimes="0;1"
-      />
-    </circle>
-  </svg>
 );
 
 Button.displayName = 'Button';

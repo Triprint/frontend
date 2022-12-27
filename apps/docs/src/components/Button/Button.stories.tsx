@@ -1,7 +1,8 @@
 import { ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
 
-import { Button, ButtonProps } from '@triprint/ui';
+import { HeartFilledIcon } from '@triprint/icons';
+import { Button, ButtonProps, Flex } from '@triprint/ui';
 
 import { booleanArgTypes, selectArgTypes } from '../../utils';
 import docs from './Button.docs.mdx';
@@ -29,58 +30,80 @@ Base.args = {
   children: '버튼',
 };
 
-export const Variants = (args: ButtonProps) => (
-  <>
-    <Button {...args}>Base (Default)</Button>
-    <Button {...args} variant="primary">
-      Primary
-    </Button>
-    <Button {...args} variant="secondary">
-      Secondary
-    </Button>
-  </>
+export const Variants = () => (
+  <Flex spacing="6" wrap="wrap" align="center">
+    <Button>Base (Default)</Button>
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="text">Text</Button>
+  </Flex>
 );
 
-export const Sizes = (args: ButtonProps) => (
-  <>
-    <Button {...args} size="sm">
-      Small
-    </Button>
-    <Button {...args} size="md">
-      Medium (Default)
-    </Button>
-    <Button {...args} size="lg">
-      Large
-    </Button>
-    <Button {...args} size="xl">
-      XLarge
-    </Button>
-  </>
+export const Sizes = () => (
+  <Flex spacing="6" wrap="wrap" align="center">
+    <Button size="sm">Small</Button>
+    <Button size="md">Medium (Default)</Button>
+    <Button size="lg">Large</Button>
+    <Button size="xl">XLarge</Button>
+  </Flex>
 );
 
-export const Loading = (args: ButtonProps) => {
+export const Loading = () => {
   const [isLoading, setLoading] = useState(false);
 
   const handleClick = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
   };
 
   return (
-    <Button {...args} isLoading={isLoading} onClick={handleClick}>
+    <Button isLoading={isLoading} onClick={handleClick}>
       버튼
     </Button>
   );
 };
 
-export const FullWidth = (args: ButtonProps) => {
+export const FullWidth = () => {
   return (
     <>
-      <Button {...args} fullWidth>
-        버튼
-      </Button>
+      <Button fullWidth>버튼</Button>
     </>
+  );
+};
+
+export const WithIcon = () => {
+  return (
+    <Flex direction="column" spacing="6" wrap="wrap">
+      <Flex spacing="6" wrap="wrap" align="center">
+        <Button variant="primary" size="sm" left={<HeartFilledIcon width={16} height={16} />}>
+          좋아요
+        </Button>
+        <Button variant="primary" size="md" left={<HeartFilledIcon width={20} height={20} />}>
+          좋아요
+        </Button>
+        <Button variant="primary" size="lg" left={<HeartFilledIcon width={20} height={20} />}>
+          좋아요
+        </Button>
+        <Button variant="primary" size="xl" left={<HeartFilledIcon width={24} height={24} />}>
+          좋아요
+        </Button>
+      </Flex>
+      <Flex spacing="6" wrap="wrap" align="center">
+        <Button variant="primary" size="sm" right={<HeartFilledIcon width={16} height={18} />}>
+          좋아요
+        </Button>
+        <Button variant="primary" size="md" right={<HeartFilledIcon width={20} height={18} />}>
+          좋아요
+        </Button>
+        <Button variant="primary" size="lg" right={<HeartFilledIcon width={20} height={24} />}>
+          좋아요
+        </Button>
+        <Button variant="primary" size="xl" right={<HeartFilledIcon width={24} height={24} />}>
+          좋아요
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
