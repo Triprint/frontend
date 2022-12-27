@@ -16,7 +16,8 @@ export const buttonRecipe = recipe({
     }),
     {
       ':disabled': {
-        opacity: 0.4,
+        opacity: 0.5,
+        pointerEvents: 'none',
       },
     },
   ],
@@ -93,8 +94,35 @@ export const buttonRecipe = recipe({
   },
 });
 
-export const loadingIconStyle = sprinkles({ position: 'absolute' });
+export const buttonTextRecipe = recipe({
+  base: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  variants: {
+    isLoading: { true: sprinkles({ visibility: 'hidden' }) },
+    size: {
+      sm: sprinkles({
+        columnGap: '1',
+      }),
+      md: sprinkles({
+        columnGap: '1.5',
+      }),
+      lg: sprinkles({
+        columnGap: '2',
+      }),
+      xl: sprinkles({
+        columnGap: '2.5',
+      }),
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    isLoading: false,
+  },
+});
 
-export const buttonTextStyle = sprinkles({ visibility: 'hidden' });
+export const loadingIconStyle = sprinkles({ position: 'absolute' });
 
 export type ButtonVariants = RecipeVariants<typeof buttonRecipe>;
