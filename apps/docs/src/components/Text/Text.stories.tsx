@@ -1,24 +1,26 @@
-import { ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentProps } from 'react';
 
-import { Box, Flex, Text, TextProps } from '@triprint/ui';
+import { Flex, Text } from '@triprint/ui';
 
-import { booleanArgTypes, selectArgTypes } from '../../utils';
+import { booleanArgType, childrenArgType, selectArgType } from '../../utils';
 import docs from './Text.docs.mdx';
 
 export default {
   title: 'Components/Text',
   component: Text,
   argTypes: {
-    as: selectArgTypes(
-      '텍스트 타입',
-      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'legend', 'strong', 'em'],
-      'span',
+    children: childrenArgType(),
+    size: selectArgType('텍스트 크기', ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'], 'md'),
+    variant: selectArgType(
+      '텍스트 타입 (색상)',
+      ['base', 'variant', 'subdued', 'disabled', 'inverse', 'primary', 'error'],
+      'base',
     ),
-    size: selectArgTypes('텍스트 크기', ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'], 'md'),
-    color: selectArgTypes('텍스트 색', ['base', 'subdued', 'inverse', 'primary', 'error'], 'base'),
-    weight: selectArgTypes('텍스트 굵기', ['regular', 'medium', 'semibold', 'bold'], 'regular'),
-    lineClamp: selectArgTypes('줄을 벗어나지 않고 ellipsis 처리', ['none', '1', '2', '3'], 'none'),
-    underline: booleanArgTypes('텍스트 밑줄', false),
+    weight: selectArgType('텍스트 굵기', ['regular', 'medium', 'semibold', 'bold'], 'regular'),
+    lineClamp: selectArgType('줄을 벗어나지 않고 ellipsis 처리를 위한 옵션', ['1', '2', '3']),
+    underline: booleanArgType('텍스트 밑줄 여부', false),
+    wordBreak: booleanArgType('단어 기준 줄바꿈 여부', false),
   },
   parameters: {
     docs: {
@@ -27,61 +29,64 @@ export default {
   },
 } as ComponentMeta<typeof Text>;
 
-const sampleText = '계절이 지나가는 하늘에는 가을로 가득 차 있습니다.';
+const sampleText = '가을 속의 별들을 다 헤일 듯합니다.';
 
-export const Base = (args: TextProps) => <Text as="span" {...args} />;
+export const Base: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 Base.args = {
   children: sampleText,
 };
 
-export const Size = () => {
-  const textVariants: TextProps['size'][] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
+interface TextWithLabelProps extends ComponentProps<typeof Text> {
+  label: string;
+}
 
+const TextWithLabel = ({ label, ...props }: TextWithLabelProps) => {
   return (
-    <Flex direction="column" spacingY="6">
-      {textVariants.map((size) => (
-        <Flex align="center" spacingX="4">
-          <Box css={{ width: '8' }}>
-            <Text size="sm" color="subdued">
-              {size}
-            </Text>
-          </Box>
-          <Text size={size}>{sampleText}</Text>
-        </Flex>
-      ))}
+    <Flex align="center" spacingX={4}>
+      <Text size="sm" variant="subdued">
+        {label}
+      </Text>
+      <Text {...props}>{sampleText}</Text>
+    </Flex>
+  );
+};
+
+export const Size = () => {
+  return (
+    <Flex direction="column" spacingY={6}>
+      <TextWithLabel label="2xs" size="2xs" />
+      <TextWithLabel label="xs" size="xs" />
+      <TextWithLabel label="sm" size="sm" />
+      <TextWithLabel label="md" size="md" />
+      <TextWithLabel label="lg" size="lg" />
+      <TextWithLabel label="xl" size="xl" />
+      <TextWithLabel label="2xl" size="2xl" />
+      <TextWithLabel label="3xl" size="3xl" />
+      <TextWithLabel label="4xl" size="4xl" />
     </Flex>
   );
 };
 
 export const Weight = () => {
-  const textVariants: TextProps['weight'][] = ['regular', 'medium', 'regular', 'bold'];
-
   return (
-    <Flex direction="column" spacingY="6">
-      {textVariants.map((weight) => (
-        <Flex align="center" spacingX="4">
-          <Box css={{ width: '14' }}>
-            <Text size="sm" color="subdued">
-              {weight}
-            </Text>
-          </Box>
-          <Text weight={weight}>{sampleText}</Text>
-        </Flex>
-      ))}
+    <Flex direction="column" spacingY={6}>
+      <TextWithLabel label="regular" weight="regular" />
+      <TextWithLabel label="medium" weight="medium" />
+      <TextWithLabel label="semibold" weight="semibold" />
+      <TextWithLabel label="bold" weight="bold" />
     </Flex>
   );
 };
 
-export const Color = () => {
+export const Variant = () => {
   return (
-    <Flex direction="column" spacingY="6">
-      <Flex direction="column" spacingY="6">
-        <Text color="base">{sampleText}</Text>
-        <Text color="subdued">{sampleText}</Text>
-        <Text color="inverse">{sampleText}</Text>
-        <Text color="primary">{sampleText}</Text>
-        <Text color="error">{sampleText}</Text>
-      </Flex>
+    <Flex direction="column" spacingY={6}>
+      <TextWithLabel label="base" variant="base" />
+      <TextWithLabel label="variant" variant="variant" />
+      <TextWithLabel label="subdued" variant="subdued" />
+      <TextWithLabel label="disabled" variant="disabled" />
+      <TextWithLabel label="inverse" variant="inverse" />
+      <TextWithLabel label="primary" variant="primary" />
     </Flex>
   );
 };

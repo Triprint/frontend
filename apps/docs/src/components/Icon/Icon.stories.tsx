@@ -1,7 +1,7 @@
-import { ComponentMeta } from '@storybook/react';
-import { ComponentProps } from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import * as TriprintIcon from '@triprint/icons';
+import { Flex, Grid, Text } from '@triprint/ui';
 
 import docs from './Icon.docs.mdx';
 
@@ -10,7 +10,9 @@ export default {
   component: TriprintIcon.HeartIcon,
   argTypes: {
     title: {
-      type: 'string',
+      control: {
+        type: 'text',
+      },
       description: '접근성을 위한 대체 텍스트 추가',
     },
     color: {
@@ -22,18 +24,10 @@ export default {
     width: {
       type: 'number',
       description: '아이콘 너비',
-      table: {
-        defaultValue: { summary: 16 },
-      },
-      defaultValue: 16,
     },
     height: {
       type: 'number',
       description: '아이콘 높이',
-      table: {
-        defaultValue: { summary: 16 },
-      },
-      defaultValue: 16,
     },
   },
   parameters: {
@@ -41,21 +35,23 @@ export default {
       page: docs,
     },
   },
-} as ComponentMeta<typeof TriprintIcon.HeartIcon>;
+} as ComponentMeta<typeof TriprintIcon.HeartFilledIcon>;
 
-type IconProps = ComponentProps<typeof TriprintIcon.HeartIcon>;
-
-export const Icon = (args: IconProps) => <TriprintIcon.HeartIcon {...args} />;
+export const Base: ComponentStory<typeof TriprintIcon.HeartFilledIcon> = (args) => (
+  <TriprintIcon.HeartFilledIcon {...args} />
+);
 
 export const AllIcons = () => {
   return (
-    <div>
+    <Grid cols={4} spacing={8} css={{ marginY: '$4' }}>
       {Object.entries(TriprintIcon).map(([iconName, IconComponent]) => (
-        <div key={iconName}>
+        <Flex key={iconName} direction="column" align="center">
           <IconComponent width={32} height={32} />
-          <span>{iconName.replace(/Icon$/, '')} </span>
-        </div>
+          <Text size="sm" variant="subdued" css={{ marginTop: '$2' }}>
+            {iconName.replace(/Icon$/, '')}
+          </Text>
+        </Flex>
       ))}
-    </div>
+    </Grid>
   );
 };

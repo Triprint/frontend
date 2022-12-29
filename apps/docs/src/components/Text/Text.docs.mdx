@@ -8,12 +8,14 @@ import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
 
 <ArgsTable story={PRIMARY_STORY} />
 
-## 크기
+## Size
+
+텍스트 크기에 따른 옵션
 
 - **2xs**: 0.625rem
 - **xs**: 0.75rem
 - **sm**: 0.875rem
-- **base**: 1rem
+- **md(default)**: 1rem
 - **lg**: 1.125rem
 - **xl**: 1.25rem
 - **2xl**: 1.5rem
@@ -26,9 +28,11 @@ import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
   <Story id="components-text--size" />
 </Canvas>
 
-## 굵기
+## Weight
 
-- **regular**: 400
+텍스트 굵기(Weight)에 따른 옵션
+
+- **regular(default)**: 400
 - **medium**: 500
 - **semibold**: 600
 - **bold**: 700
@@ -37,14 +41,18 @@ import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
   <Story id="components-text--weight" />
 </Canvas>
 
-## 색
+## Variant
 
-- **base**: 기본 색
-- **subdued**: 약간 밝은 색
-- **inverse**: 반대 색
-- **primary**: 브랜드 색
-- **error**: 에러 색
+텍스트 타입(색상)에 따른 옵션
+
+- **base(default)**: 기본 색 (`$onSurface`)
+- **variant**: 변형 색 (`$onSurfaceVariant`)
+- **subdued**: 약간 밝은 색 (`$onSurfaceSubdued`)
+- **disabled**: disabled 된 텍스트 또는 placeholder을 위한 색 (`$onSurfaceSubdued`)
+- **inverse**: 반대 색 (`$inverseOnSurface`)
+- **primary**: 브랜드 색 (`$primary`)
+- **error**: 에러 색 (`$error`)
 
 <Canvas withSource="none">
-  <Story id="components-text--color" />
+  <Story id="components-text--variant" />
 </Canvas>
