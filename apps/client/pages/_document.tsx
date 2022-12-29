@@ -1,6 +1,8 @@
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 import type { DocumentContext, DocumentInitialProps } from 'next/document';
 
+import { getCssText } from '@triprint/ui';
+
 class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await NextDocument.getInitialProps(ctx);
@@ -11,7 +13,9 @@ class Document extends NextDocument {
   render() {
     return (
       <Html lang="ko">
-        <Head />
+        <Head>
+          <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+        </Head>
         <body>
           <Main />
           <NextScript />
