@@ -1,43 +1,101 @@
-import clsx, { ClassValue } from 'clsx';
-import React from 'react';
+import { styled } from 'stitches.config';
 
-import { LoadingIcon } from '@triprint/icons';
-
-import { buttonRecipe, buttonTextRecipe, ButtonVariants, loadingIconStyle } from './Button.css';
-
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  ButtonVariants & {
-    children?: React.ReactNode;
-    isLoading?: boolean;
-    className?: ClassValue;
-    left?: React.ReactNode;
-    right?: React.ReactNode;
-  };
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { variant, size, className, isLoading, disabled, fullWidth, children, left, right, ...props },
-    forwardedRef,
-  ) => {
-    return (
-      <button
-        ref={forwardedRef}
-        className={clsx(buttonRecipe({ variant, size, fullWidth }), className)}
-        disabled={isLoading || disabled}
-        {...props}
-      >
-        {isLoading && (
-          <LoadingIcon className={loadingIconStyle} width={24} height={24} title="Loading Icon" />
-        )}
-        <div className={clsx(buttonTextRecipe({ isLoading, size }))}>
-          {left}
-          {children}
-          {right}
-        </div>
-      </button>
-    );
+const Button = styled('button', {
+  position: 'relative',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transitionProperty: '$transitions$colors',
+  transitionTimingFunction: '$transitions$easeIn',
+  transitionDuration: '$transitions$150',
+  fontWeight: '$semibold',
+  cursor: 'pointer',
+  '&:disabled': {
+    opacity: 0.4,
+    pointerEvents: 'none',
   },
-);
+  variants: {
+    variant: {
+      base: {
+        color: '$onSurfaceVariant',
+        backgroundColor: '$surfaceVariant',
+
+        '&:hover': {
+          backgroundColor: '$hoverSurfaceVariant',
+        },
+      },
+      primary: {
+        color: '$onPrimary',
+        backgroundColor: '$primary',
+
+        '&:hover': {
+          backgroundColor: '$hoverPrimary',
+        },
+      },
+      secondary: {
+        color: '$onPrimaryContainer',
+        backgroundColor: '$primaryContainer',
+
+        '&:hover': {
+          backgroundColor: '$hoverPrimaryContainer',
+        },
+      },
+      text: {
+        color: '$onSurface',
+        backgroundColor: '$transparent',
+        '&:hover': {
+          backgroundColor: '$hoverSurface',
+        },
+      },
+      inverse: {
+        color: '$inverseOnSurface',
+        backgroundColor: '$inverseSurface',
+        '&:hover': {
+          backgroundColor: '$hoverInverseSurface',
+        },
+      },
+    },
+    size: {
+      sm: {
+        fontSize: '$sm',
+        lineHeight: '$sm',
+        paddingX: '$2_5',
+        paddingY: '$1_5',
+        borderRadius: '$lg',
+      },
+      md: {
+        fontSize: '$sm',
+        lineHeight: '$sm',
+        paddingX: '$3',
+        paddingY: '$2',
+        borderRadius: '$xl',
+      },
+      lg: {
+        fontSize: '$md',
+        lineHeight: '$md',
+        paddingX: '$4',
+        paddingY: '$2_5',
+        borderRadius: '$xl',
+      },
+      xl: {
+        fontSize: '$md',
+        lineHeight: '$md',
+        paddingX: '$6',
+        paddingY: '$3_5',
+        borderRadius: '$xl',
+      },
+    },
+    fullWidth: {
+      true: {
+        width: '$full',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'base',
+    size: 'md',
+  },
+});
 
 Button.displayName = 'Button';
 

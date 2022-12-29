@@ -1,43 +1,128 @@
-import type * as Polymorphic from '@radix-ui/react-polymorphic';
-import clsx, { ClassValue } from 'clsx';
-import React from 'react';
+import { styled } from 'stitches.config';
 
-import { sprinkles } from '../../css';
-import { textRecipe, TextVariants } from './Text.css';
-
-export type TextProps = TextVariants & {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'legend' | 'strong' | 'em';
-  weight?: 'regular' | 'medium' | 'semibold' | 'bold';
-  className?: ClassValue;
-  underline?: boolean;
-};
-
-type PolymorphicText = Polymorphic.ForwardRefComponent<'span', TextProps>;
-
-const Text = React.forwardRef((props, forwardedRef) => {
-  const {
-    as: Comp = 'span',
-    className,
-
-    size,
-    color,
-    weight,
-    lineClamp,
-    underline,
-    ...restProps
-  } = props;
-  return (
-    <Comp
-      className={clsx(
-        textRecipe({ size, color, lineClamp, underline }),
-        sprinkles({ fontWeight: weight }),
-        className,
-      )}
-      {...restProps}
-      ref={forwardedRef}
-    />
-  );
-}) as PolymorphicText;
+const Text = styled('span', {
+  variants: {
+    size: {
+      '2xs': {
+        fontSize: '$2xs',
+        lineHeight: '$2xs',
+      },
+      xs: {
+        fontSize: '$xs',
+        lineHeight: '$xs',
+      },
+      sm: {
+        fontSize: '$sm',
+        lineHeight: '$sm',
+      },
+      md: {
+        fontSize: '$md',
+        lineHeight: '$md',
+      },
+      lg: {
+        fontSize: '$lg',
+        lineHeight: '$lg',
+      },
+      xl: {
+        fontSize: '$xl',
+        lineHeight: '$xl',
+      },
+      '2xl': {
+        fontSize: '$2xl',
+        lineHeight: '$2xl',
+      },
+      '3xl': {
+        fontSize: '$3xl',
+        lineHeight: '$3xl',
+      },
+      '4xl': {
+        fontSize: '$4xl',
+        lineHeight: '$4xl',
+      },
+      '5xl': {
+        fontSize: '$5xl',
+        lineHeight: '$5xl',
+      },
+      '6xl': {
+        fontSize: '$6xl',
+        lineHeight: '$6xl',
+      },
+    },
+    weight: {
+      regular: {
+        fontWeight: '$regular',
+      },
+      medium: {
+        fontWeight: '$medium',
+      },
+      semibold: {
+        fontWeight: '$semibold',
+      },
+      bold: {
+        fontWeight: '$bold',
+      },
+    },
+    variant: {
+      base: {
+        color: '$onSurface',
+      },
+      variant: {
+        color: '$onSurfaceVariant',
+      },
+      subdued: {
+        color: '$onSurfaceSubdued',
+      },
+      inverse: {
+        color: '$inverseOnSurface',
+      },
+      disabled: {
+        color: '$grey500',
+      },
+      primary: {
+        color: '$primary',
+      },
+      error: {
+        color: '$error',
+      },
+    },
+    underline: {
+      true: {
+        textDecoration: 'underline',
+      },
+    },
+    lineClamp: {
+      1: {
+        lineClamp: 1,
+      },
+      2: {
+        lineClamp: 2,
+      },
+      3: {
+        lineClamp: 3,
+      },
+    },
+    alignment: {
+      start: {
+        textAlign: 'start',
+      },
+      center: {
+        textAlign: 'center',
+      },
+      end: {
+        textAlign: 'end',
+      },
+      justify: {
+        textAlign: 'justify',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    variant: 'base',
+    weight: 'regular',
+    alignment: 'start',
+  },
+});
 
 Text.displayName = 'Text';
 
