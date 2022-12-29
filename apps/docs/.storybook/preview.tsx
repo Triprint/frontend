@@ -2,6 +2,8 @@ import React from 'react';
 
 import { globalFonts, globalStyles } from '@triprint/ui';
 
+import theme from './theme';
+
 export const parameters = {
   viewMode: 'docs',
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -22,6 +24,9 @@ export const parameters = {
     storySort: {
       order: ['Introduction', 'Tokens', 'Components'],
     },
+  },
+  docs: {
+    theme: theme,
   },
 };
 
