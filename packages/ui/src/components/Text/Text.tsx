@@ -115,6 +115,11 @@ const Text = styled('span', {
         textAlign: 'justify',
       },
     },
+    wordBreak: {
+      true: {
+        wordBreak: 'keep-all',
+      },
+    },
   },
   defaultVariants: {
     size: 'md',
