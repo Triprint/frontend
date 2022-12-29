@@ -6,13 +6,23 @@ const config: StorybookViteConfig = {
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-vite',
+    disableTelemetry: true,
   },
   typescript: {
     reactDocgen: 'react-docgen',
   },
+  features: {
+    storyStoreV7: true,
+  },
   staticDirs: ['../public'],
   async viteFinal(config) {
-    return config;
+    return {
+      ...config,
+      build: {
+        ...config.build,
+        chunkSizeWarningLimit: 1024,
+      },
+    };
   },
 };
 
