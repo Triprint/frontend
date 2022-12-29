@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+
 html,
 body {
   font-size: 16px;
@@ -10,19 +12,25 @@ div[role='main'] {
 }
 
 /* Sidebar */
-
 .sidebar-header img {
   width: 100%;
   max-width: 144px;
   object-fit: cover;
 }
 
+.sidebar-container .sidebar-subheading {
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding-left: 20px;
+  padding-right: 0.75rem;
+}
+
 .sidebar-container .sidebar-item {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5rem;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .sidebar-container svg {

@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
 
 # Button
 
-<Canvas>
+<Canvas withToolbar withSource="open">
   <Story id="components-button--base" />
 </Canvas>
 
@@ -10,30 +10,35 @@ import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
 
 ## Variant
 
+버튼 종류(색상)에 따른 옵션
+
+- **base(default)**: 기본 회색 버튼
+- **primary**: 브랜드 컬러 버튼
+- **secondary**: 밝은 브랜드 컬러 버튼
+- **text**: 텍스트만 보여지는 버튼
+- **inverse**: 기본 회색의 반대 색상의 버튼
+
 <Canvas withSource="none">
-  <Story id="components-button--variants" />
+  <Story id="components-button--variant" />
 </Canvas>
 
 ## Size
 
+버튼 크기에 따른 옵션
+
+- **sm**
+- **md(default)**
+- **lg**
+- **xl**
+
 <Canvas withSource="none">
-  <Story id="components-button--sizes" />
+  <Story id="components-button--size" />
 </Canvas>
 
-## Loading
+## Full Width
 
-<Canvas withSource="none">
-  <Story id="components-button--loading" />
-</Canvas>
-
-## FullWidth
+버튼 전체 너비 적용 여부
 
 <Canvas withSource="none">
   <Story id="components-button--full-width" />
-</Canvas>
-
-## With Icon
-
-<Canvas withSource="none">
-  <Story id="components-button--with-icon" />
 </Canvas>

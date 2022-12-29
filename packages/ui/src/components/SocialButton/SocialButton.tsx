@@ -1,42 +1,62 @@
-import type * as Polymorphic from '@radix-ui/react-polymorphic';
-import clsx, { ClassValue } from 'clsx';
-import React from 'react';
+import { styled } from 'stitches.config';
 
-import { socialButtonRecipe, SocialButtonVariants } from './SocialButton.css';
-import { SocialType, SOCIAL_ICONS } from './constant';
-
-type Props = SocialButtonVariants & {
-  social: SocialType;
-  className?: ClassValue;
-};
-
-type PolymorphicSocialButton = Polymorphic.ForwardRefComponent<'button', Props>;
-
-export type SocialButtonProps = Polymorphic.OwnProps<PolymorphicSocialButton>;
-
-const SocialButton = React.forwardRef((props, forwardedRef) => {
-  const {
-    as: Component = 'button',
-    className,
-    children,
-    social,
-    variant,
-    fullWidth,
-    ...restProps
-  } = props;
-  const SocialIcon = SOCIAL_ICONS[social];
-
-  return (
-    <Component
-      className={clsx(socialButtonRecipe({ social, variant, fullWidth }), className)}
-      ref={forwardedRef}
-      {...restProps}
-    >
-      <SocialIcon width={24} height={24} />
-      {variant !== 'square' && children}
-    </Component>
-  );
-}) as PolymorphicSocialButton;
+const SocialButton = styled('button', {
+  position: 'relative',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  columnGap: '$2_5',
+  fontSize: '$md',
+  lineHeight: '$md',
+  fontWeight: '$semibold',
+  transitionProperty: '$transitions$opacity',
+  transitionDuration: '$transitions$150',
+  transitionTimingFunction: '$transition$easeIn',
+  cursor: 'pointer',
+  '&:hover': {
+    opacity: 0.75,
+  },
+  variants: {
+    variant: {
+      base: {
+        paddingX: '$6',
+        paddingY: '$3_5',
+        borderRadius: '$xl',
+      },
+      circle: {
+        padding: '$3_5',
+        borderRadius: '$full',
+      },
+    },
+    colorScheme: {
+      kakao: {
+        color: '#191919',
+        backgroundColor: '#FEE500',
+      },
+      naver: {
+        color: '#ffffff',
+        backgroundColor: '#02C759',
+      },
+      google: {
+        color: '#505050',
+        backgroundColor: '#ffffff',
+        boxShadow: 'inset 0 0 0 1px #eaeaea',
+      },
+      facebook: {
+        color: '#ffffff',
+        backgroundColor: '#1877f2',
+      },
+    },
+    fullWidth: {
+      true: {
+        width: '$full',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'base',
+  },
+});
 
 SocialButton.displayName = 'SocialButton';
 

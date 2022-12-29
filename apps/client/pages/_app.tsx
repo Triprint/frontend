@@ -1,9 +1,11 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import '@triprint/ui/css';
+import { globalStyles } from '@triprint/ui';
 
 const App = ({ Component, pageProps }: AppProps) => {
+  globalStyles();
+
   return (
     <>
       <Head>

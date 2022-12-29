@@ -1,4 +1,8 @@
-import '@triprint/ui/css';
+import React from 'react';
+
+import { globalFonts, globalStyles } from '@triprint/ui';
+
+import theme from './theme';
 
 export const parameters = {
   viewMode: 'docs',
@@ -21,4 +25,15 @@ export const parameters = {
       order: ['Introduction', 'Tokens', 'Components'],
     },
   },
+  docs: {
+    theme: theme,
+  },
 };
+
+export const decorators = [
+  (StoryFn) => {
+    globalFonts();
+    globalStyles();
+    return <StoryFn />;
+  },
+];

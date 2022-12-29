@@ -1,13 +1,13 @@
 import { addons } from '@storybook/addons';
 
-import { lightTheme } from './theme';
+import theme from './theme';
 
 addons.setConfig({
-  theme: lightTheme,
+  theme: theme,
   isFullscreen: false,
   showNav: true,
   showPanel: true,
-  panelPosition: 'bottom',
+  panelPosition: 'right',
   enableShortcuts: true,
   showToolbar: true,
   isToolshown: true,

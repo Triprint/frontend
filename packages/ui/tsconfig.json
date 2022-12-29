@@ -1,5 +1,9 @@
 {
   "extends": "@triprint/tsconfig/react-library.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "declarationDir": "dist/types"
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

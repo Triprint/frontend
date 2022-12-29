@@ -2,17 +2,14 @@
   "name": "@triprint/ui",
   "description": "Design system for TRIPRINT",
   "version": "0.0.0",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
+      "require": "./dist/index.cjs",
+      "types": "./dist/types/index.d.ts"
     }
   },
   "files": [
@@ -20,37 +17,32 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite build --watch --mode=development",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c --bundleConfigAsCjs",
+    "dev": "rollup -c --bundleConfigAsCjs --watch",
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
     "format": "prettier --write \"src/**/*.ts*\"",
     "clean": "rimraf .turbo dist node_modules"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@radix-ui/react-polymorphic": "^0.0.14",
-    "@triprint/icons": "*",
-    "@triprint/tokens": "*",
-    "@vanilla-extract/css": "^1.9.2",
-    "@vanilla-extract/recipes": "^0.3.0",
-    "@vanilla-extract/sprinkles": "^1.5.1",
-    "clsx": "^1.2.1"
+    "@stitches/react": "^1.2.8",
+    "@triprint/icons": "*"
   },
   "devDependencies": {
     "@triprint/eslint-config": "*",
     "@triprint/tsconfig": "*",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
-    "@vanilla-extract/vite-plugin": "^3.7.0",
     "eslint": "^8.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.9.4",
-    "vite": "^3.2.5",
-    "vite-plugin-dts": "^1.7.1"
+    "rollup": "^3.8.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "4.7.4"
   }
 }
