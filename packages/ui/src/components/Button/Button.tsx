@@ -62,6 +62,7 @@ const Button = styled('button', {
         paddingX: '$2_5',
         paddingY: '$1_5',
         borderRadius: '$lg',
+        columnGap: '$1',
       },
       md: {
         fontSize: '$sm',
@@ -69,6 +70,7 @@ const Button = styled('button', {
         paddingX: '$3',
         paddingY: '$2',
         borderRadius: '$xl',
+        columnGap: '$1_5',
       },
       lg: {
         fontSize: '$md',
@@ -76,6 +78,7 @@ const Button = styled('button', {
         paddingX: '$4',
         paddingY: '$2_5',
         borderRadius: '$xl',
+        columnGap: '$2',
       },
       xl: {
         fontSize: '$md',
@@ -83,6 +86,7 @@ const Button = styled('button', {
         paddingX: '$6',
         paddingY: '$3_5',
         borderRadius: '$xl',
+        columnGap: '$2_5',
       },
     },
     fullWidth: {
