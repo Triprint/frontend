@@ -44,3 +44,17 @@ export const childrenArgType = (description?: string): InputType => {
     },
   };
 };
+
+export const numberArgType = (description?: string, defaultValue?: number): InputType => {
+  return {
+    type: 'number',
+    description: description ?? '자식 컴포넌트 또는 컨텐츠',
+    defaultValue,
+    table: {
+      type: {
+        summary: 'number',
+      },
+      defaultValue: { summary: defaultValue },
+    },
+  };
+};
