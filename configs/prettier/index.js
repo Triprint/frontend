@@ -7,7 +7,7 @@ module.exports = {
   tabWidth: 2,
   useTabs: false,
   trailingComma: 'all',
-  importOrder: ['<THIRD_PARTY_MODULES>', '^@triprint/(.*)$', '^[./]'],
+  importOrder: ['<THIRD_PARTY_MODULES>', '^@triprint/(.*)$', '^@/', '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: false,
 };
