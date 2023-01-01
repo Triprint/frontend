@@ -1,5 +1,14 @@
 {
   "extends": "@triprint/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["./components/*"],
+      "@/constants/*": ["./constants/*"],
+      "@/layouts/*": ["./layouts/*"],
+      "@/utils/*": ["./utils/*"]
+    }
+  },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
