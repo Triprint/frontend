@@ -1,11 +1,9 @@
 import type { NextPage } from 'next';
 
+import { MainLayout } from '@/layouts/MainLayout';
+
 const HomePage: NextPage = () => {
-  return (
-    <div>
-      Client
-    </div>
-  );
+  return <MainLayout>Client</MainLayout>;
 };
 
 export default HomePage;
