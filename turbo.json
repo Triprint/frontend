@@ -3,7 +3,17 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "storybook-static/**"],
+      "outputs": ["dist/**", "storybook-static/**"],
+      "cache": true
+    },
+    "client#build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"],
+      "env": [
+        "NEXT_PUBLIC_API_SERVER_URL",
+        "NEXT_PUBLIC_KAKAO_CLIENT_ID",
+        "NEXT_PUBLIC_KAKAO_REDIRECT_URI"
+      ],
       "cache": true
     },
     "dev": {
@@ -21,5 +31,6 @@
     "start": {
       "cache": false
     }
-  }
+  },
+  "globalDependencies": [".env"]
 }

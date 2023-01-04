@@ -73,7 +73,7 @@ export const {
       hoverError: '$red800',
       hoverErrorContainer: '$red200',
       hoverBackground: '$grey200',
-      hoverSurface: '$grey100',
+      hoverSurface: '$grey200',
       hoverSurfaceVariant: '$grey300',
       hoverInverseSurface: '$grey700',
     },
@@ -277,3 +277,5 @@ export const {
     }),
   },
 });
+
+export type CSSProp = { css?: Stitches.CSS<typeof config> };
