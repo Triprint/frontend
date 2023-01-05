@@ -3,18 +3,19 @@ import { styled } from 'stitches.config';
 
 import { fadeIn, fadeInAndScaleUp } from '@/styles/keyframes';
 
-export const Overlay = styled(AlertDialog.Overlay, {
+export const StyledAlertOverlay = styled(AlertDialog.Overlay, {
   position: 'fixed',
   top: 0,
   right: 0,
   bottom: 0,
   left: 0,
   zIndex: '$modalBackdrop',
-  backgroundColor: 'rgba(0,0,0,0.25)',
+  backdropFilter: 'blur(4px)',
+  backgroundColor: 'rgba(0,0,0,0.2)',
   animation: `${fadeIn} $transitions$150 $transitions$easeIn`,
 });
 
-export const Content = styled(AlertDialog.Content, {
+export const StyledAlertContent = styled(AlertDialog.Content, {
   position: 'fixed',
   top: 0,
   right: 0,
@@ -30,7 +31,7 @@ export const Content = styled(AlertDialog.Content, {
   },
 });
 
-export const ContentContainer = styled('div', {
+export const StyledAlertContentInner = styled('div', {
   position: 'relative',
   width: '$full',
   maxWidth: '$sm',

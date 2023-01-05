@@ -1,58 +1,65 @@
-import * as AlertDialog from '@radix-ui/react-alert-dialog';
+import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { Flex } from 'layouts';
 import React from 'react';
+import { CSSProp } from 'stitches.config';
 
 import { Button } from '../Button';
 import { Text } from '../Text';
-import * as Styled from './Alert.styled';
+import { StyledAlertContent, StyledAlertContentInner, StyledAlertOverlay } from './Alert.styled';
 
-export interface AlertProps {
-  title: React.ReactNode;
-  description: React.ReactNode;
-  actionLabel?: React.ReactNode;
-  cancelLabel?: React.ReactNode;
-  onAction?: React.MouseEventHandler<HTMLButtonElement>;
-}
+type AlertDialogPrimitivePrimitiveProps = React.ComponentProps<typeof AlertDialogPrimitive.Content>;
+type AlertContentProps = AlertDialogPrimitivePrimitiveProps &
+  CSSProp & {
+    title: React.ReactNode;
+    description: React.ReactNode;
+    actionLabel?: React.ReactNode;
+    cancelLabel?: React.ReactNode;
+    onAction?: React.MouseEventHandler<HTMLButtonElement>;
+  };
 
-const Alert = React.forwardRef<React.ElementRef<typeof Styled.Content>, AlertProps>(
-  ({ title, description, actionLabel = '확인', cancelLabel = '취소', onAction }, forwardedRef) => {
-    return (
-      <AlertDialog.Portal>
-        <Styled.Overlay />
-        <Styled.Content ref={forwardedRef}>
-          <Styled.ContentContainer>
-            <AlertDialog.Title asChild>
-              <Text as="h2" weight="bold" size="xl" css={{ marginBottom: '$2' }}>
-                {title}
-              </Text>
-            </AlertDialog.Title>
-            <AlertDialog.Description asChild>
-              <Text as="p" variant="variant" css={{ marginBottom: '$4' }}>
-                {description}
-              </Text>
-            </AlertDialog.Description>
-            <Flex spacingX={4}>
-              <AlertDialog.Action asChild onClick={onAction}>
-                <Button variant="primary" size="lg" fullWidth>
-                  {actionLabel}
-                </Button>
-              </AlertDialog.Action>
-              <AlertDialog.Cancel asChild>
-                <Button size="lg" fullWidth>
-                  {cancelLabel}
-                </Button>
-              </AlertDialog.Cancel>
-            </Flex>
-          </Styled.ContentContainer>
-        </Styled.Content>
-      </AlertDialog.Portal>
-    );
-  },
-);
-
-Alert.displayName = 'Alert';
-
-export default Object.assign(Alert, {
-  Root: AlertDialog.Root,
-  Trigger: AlertDialog.Trigger,
+const AlertContent = React.forwardRef<
+  React.ElementRef<typeof StyledAlertContent>,
+  AlertContentProps
+>(({ title, description, actionLabel = '확인', cancelLabel = '취소', onAction }, forwardedRef) => {
+  return (
+    <AlertDialogPrimitive.Portal>
+      <StyledAlertOverlay />
+      <StyledAlertContent ref={forwardedRef}>
+        <StyledAlertContentInner>
+          <AlertDialogPrimitive.Title asChild>
+            <Text as="h2" weight="bold" size="xl" css={{ marginBottom: '$2' }}>
+              {title}
+            </Text>
+          </AlertDialogPrimitive.Title>
+          <AlertDialogPrimitive.Description asChild>
+            <Text as="p" variant="variant" css={{ marginBottom: '$4' }}>
+              {description}
+            </Text>
+          </AlertDialogPrimitive.Description>
+          <Flex spacingX={4}>
+            <AlertDialogPrimitive.Action asChild onClick={onAction}>
+              <Button variant="primary" size="lg" fullWidth>
+                {actionLabel}
+              </Button>
+            </AlertDialogPrimitive.Action>
+            <AlertDialogPrimitive.Cancel asChild>
+              <Button size="lg" fullWidth>
+                {cancelLabel}
+              </Button>
+            </AlertDialogPrimitive.Cancel>
+          </Flex>
+        </StyledAlertContentInner>
+      </StyledAlertContent>
+    </AlertDialogPrimitive.Portal>
+  );
 });
+
+AlertContent.displayName = 'AlertContent';
+
+const Alert = {
+  Root: AlertDialogPrimitive.Root,
+  Trigger: AlertDialogPrimitive.Trigger,
+  Content: AlertContent,
+};
+
+export default Alert;
