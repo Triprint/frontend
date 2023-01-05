@@ -4,7 +4,10 @@ import { ArgsTable, Canvas, Story, PRIMARY_STORY } from '@storybook/addon-docs';
 
 사용자에 대한 확인 또는 경고를 알리기 위한 컴포넌트
 
-<Canvas withToolbar>
+<Canvas
+  withToolbar
+  mdxSource={`<Alert.Root>\n\t<Alert.Trigger/>\n\t<Alert.Content />\n</Alert.Root>`}
+>
   <Story id="components-alert--base" />
 </Canvas>
 

@@ -7,7 +7,7 @@ import docs from './Alert.docs.mdx';
 
 export default {
   title: 'Components/Alert',
-  component: Alert,
+  component: Alert.Content,
   argTypes: {
     title: stringArgType('제목', ['ReactNode', 'string']),
     description: stringArgType('설명', ['ReactNode', 'string']),
@@ -20,15 +20,15 @@ export default {
       page: docs,
     },
   },
-} as ComponentMeta<typeof Alert>;
+} as ComponentMeta<typeof Alert.Content>;
 
-export const Base: ComponentStory<typeof Alert> = ({ ...args }) => {
+export const Base: ComponentStory<typeof Alert.Content> = ({ ...args }) => {
   return (
     <Alert.Root>
       <Alert.Trigger asChild>
         <Button>로그아웃</Button>
       </Alert.Trigger>
-      <Alert {...args} />
+      <Alert.Content {...args} />
     </Alert.Root>
   );
 };
