@@ -279,3 +279,5 @@ export const {
 });
 
 export type CSSProp = { css?: Stitches.CSS<typeof config> };
+export type CSS = Stitches.CSS<typeof config>;
+export type { VariantProps } from '@stitches/react';
