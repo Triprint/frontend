@@ -1,0 +1,68 @@
+import { ArgsTable, Canvas, Story, PRIMARY_STORY, Source } from '@storybook/addon-docs';
+
+# Dialog
+
+모달 형식의 컨텐츠를 보여주는 컴포넌트
+
+<Canvas withToolbar withSource="none">
+  <Story id="components-dialog--base" />
+</Canvas>
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## 구조
+
+<Source
+  language="tsx"
+  format={true}
+  code={`<Dialog.Root>
+    <DialogTrigger />
+    <Dialog.Content>
+      <Dialog.Close />
+    </Dialog.Content>
+  </Dialog.Root>`}
+/>
+
+## 크기
+
+- **xs**: 320px
+- **sm**: 384px
+- **md**: 448px
+- **lg(default)**: 512px
+- **xl**: 576px
+- **2xl**: 672px
+- **3xl**: 768px
+- **4xl**: 896px
+- **5xl**: 1024px
+- **6xl**: 1152px
+- **7xl**: 1280px
+
+<Canvas withSource="none">
+  <Story id="components-dialog--size" />
+</Canvas>
+
+## 전체화면
+
+모달을 전체화면으로 보여주고 싶은 경우에 옵션
+
+**참조**
+
+- `height`와 `paddingX` 그리고 `borderRadius`가 없어짐
+- size는 주어진 옵션대로 적용이 됨 (`maxWidth`)
+
+<Canvas withSource="none">
+  <Story id="components-dialog--full-screen" />
+</Canvas>
+
+### 예제 코드
+
+<Source
+  language="tsx"
+  format={true}
+  code={`<Dialog.Root>
+    <Dialog.Trigger />
+    <Dialog.Content
+      fullScreen={{ '@initial': true, '@tablet': false }}
+    />
+  </Dialog.Root>`}
+/>

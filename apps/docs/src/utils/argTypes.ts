@@ -48,13 +48,44 @@ export const childrenArgType = (description?: string): InputType => {
 export const numberArgType = (description?: string, defaultValue?: number): InputType => {
   return {
     type: 'number',
-    description: description ?? '자식 컴포넌트 또는 컨텐츠',
+    description,
     defaultValue,
     table: {
       type: {
         summary: 'number',
       },
       defaultValue: { summary: defaultValue },
+    },
+  };
+};
+
+export const stringArgType = (
+  description: string,
+  types = ['string'],
+  defaultValue?: string,
+): InputType => {
+  return {
+    control: 'text',
+    description,
+    defaultValue,
+    table: {
+      type: {
+        summary: types.join(' | '),
+      },
+      defaultValue: { summary: defaultValue },
+    },
+  };
+};
+
+export const actionArgType = (action: string, description?: string, type?: string): InputType => {
+  return {
+    action,
+    description,
+    table: {
+      category: 'Events',
+      type: {
+        summary: type,
+      },
     },
   };
 };
