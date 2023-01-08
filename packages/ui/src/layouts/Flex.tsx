@@ -69,6 +69,12 @@ const Flex = styled('div', {
       between: {
         justifyContent: 'space-between',
       },
+      around: {
+        justifyContent: 'space-around',
+      },
+      evenly: {
+        justifyContent: 'space-evenly',
+      },
     },
     wrap: {
       noWrap: {
