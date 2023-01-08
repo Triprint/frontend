@@ -1,5 +1,5 @@
 import * as DropdownPrimitive from '@radix-ui/react-dropdown-menu';
-import { styled } from 'stitches.config';
+import { styled, type VariantProps } from 'stitches.config';
 
 import {
   fadeInAndSlideDown,
@@ -9,7 +9,6 @@ import {
 } from '@/styles/keyframes';
 
 export const StyledDropdownContent = styled(DropdownPrimitive.Content, {
-  minWidth: 180,
   backgroundColor: '$surface',
   border: '1px solid $colors$outline',
   borderRadius: '$lg',
@@ -25,7 +24,28 @@ export const StyledDropdownContent = styled(DropdownPrimitive.Content, {
     '&[data-side="bottom"]': { animationName: fadeInAndSlideDown },
     '&[data-side="left"]': { animationName: fadeInAndSlideLeft },
   },
+  variants: {
+    size: {
+      sm: {
+        minWidth: '$space$40',
+      },
+      md: {
+        minWidth: '$space$48',
+      },
+      lg: {
+        minWidth: '$space$56',
+      },
+      xl: {
+        minWidth: '$space$72',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
 });
+
+export type DropdownContentVariantProps = VariantProps<typeof StyledDropdownContent>;
 
 export const StyledDropdownArrow = styled(DropdownPrimitive.Arrow, {
   fill: '$surface',

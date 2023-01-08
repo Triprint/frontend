@@ -6,6 +6,7 @@ import { CheckIcon, DotIcon } from '@triprint/icons';
 
 import { Box } from '../../layouts';
 import {
+  type DropdownContentVariantProps,
   StyledDropdownArrow,
   StyledDropdownCheckboxItem,
   StyledDropdownContent,
@@ -22,7 +23,7 @@ type DropdownContentProps = DropdownContentPrimitiveProps & {
 
 const DropdownContent = React.forwardRef<
   React.ElementRef<typeof StyledDropdownContent>,
-  DropdownContentProps
+  DropdownContentProps & DropdownContentVariantProps
 >(({ children, ...props }, forwardedRef) => (
   <DropdownPrimitive.Portal>
     <StyledDropdownContent {...props} ref={forwardedRef}>
