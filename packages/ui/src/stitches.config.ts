@@ -216,11 +216,10 @@ export const {
       full: '9999px',
     },
     shadows: {
-      sm: '0px 1px 3px 1px rgba(0,0,0,0.15), 0px 1px 2px 0px rgba(0,0,0,0.3)',
-      md: '0px 2px 6px 2px rgba(0,0,0,0.15), 0px 1px 2px 0px rgba(0,0,0,0.3)',
-      lg: '0px 1px 3px 0px rgba(0,0,0,0.3), 0px 4px 8px 3px rgba(0,0,0,0.15)',
-      xl: '0px 2px 3px 0px rgba(0,0,0,0.3), 0px 6px 10px 4px rgba(0,0,0,0.15)',
-      '2xl': '0px 4px 4px 0px rgba(0,0,0,0.3), 0px 8px 12px 6px rgba(0,0,0,0.15)',
+      modal: '0px 0px 0px 1px rgba(0, 0, 0, 0.05), 0px 24px 72px rgba(0, 0, 0, 0.2)',
+      popOver:
+        '0px 0px 0px 1px rgba(0, 0, 0, 0.03), 0px 10px 14px rgba(0, 0, 0, 0.06), 0px 14px 32px rgba(0, 0, 0, 0.12)',
+      outline: 'inset 0 0 0 1px $colors$outline',
     },
     zIndices: {
       dropdown: '1000',
