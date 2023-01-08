@@ -1,0 +1,63 @@
+import { ArgsTable, Canvas, Story, PRIMARY_STORY, Source } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Dropdown
+
+자세한 각 컴포넌트의 Props들은 [Dropdown Menu - Radix UI](https://www.radix-ui.com/docs/primitives/components/dropdown-menu)를 참조
+
+<Canvas withToolbar withSource="none">
+  <Story id="components-dropdown--base" />
+</Canvas>
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Props
+
+`<Dialog.Content/>`의 Props들로 Dropdown의 형태에 대한 요소들
+
+### Side
+
+<Canvas withSource="none">
+  <Story id="components-dropdown--side" />
+</Canvas>
+
+### Align
+
+<Canvas withSource="none">
+  <Story id="components-dropdown--align" />
+</Canvas>
+
+### Size
+
+<Canvas withSource="none">
+  <Story id="components-dropdown--size" />
+</Canvas>
+
+## 구조
+
+<Source
+  language="tsx"
+  format
+  code={dedent`
+    <Dropdown.Root>
+      <Dropdown.Trigger />
+      <Dropdown.Content>
+        {/* Item */}
+        <Dropdown.Group>
+          <Dropdown.Label />
+          <Dropdown.Item />
+        </Dropdown.Group>
+        {/* Checkbox Item */}
+        <Dropdown.Group>
+          <Dropdown.Label />
+          <Dropdown.CheckboxItem />
+        </Dropdown.Group>
+        {/* Radio Item */}
+        <Dropdown.RadioGroup>
+          <Dropdown.Label />
+          <Dropdown.RadioItem />
+        </Dropdown.RadioGroup>
+      </Dropdown.Content>
+    </Dropdown.Root>
+  `}
+/>
