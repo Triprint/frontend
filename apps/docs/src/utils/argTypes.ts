@@ -89,3 +89,20 @@ export const actionArgType = (action: string, description?: string, type?: strin
     },
   };
 };
+
+export const colorArgType = (description: string, defaultValue = '#000'): InputType => {
+  return {
+    control: {
+      type: 'color',
+    },
+    description: description,
+    defaultValue,
+    table: {
+      category: 'Color',
+      type: {
+        summary: 'string',
+      },
+      defaultValue: { summary: defaultValue },
+    },
+  };
+};
