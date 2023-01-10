@@ -16,7 +16,6 @@ const IconBase = forwardRef<SVGSVGElement, IconBaseProps>(
     return (
       <svg
         fill="currentColor"
-        stroke="currentColor"
         viewBox="0 0 24 24"
         aria-labelledby={computedTitleId}
         xmlns="http://www.w3.org/2000/svg"
