@@ -12,3 +12,4 @@ export { default as HeartIcon } from './heart';
 export { default as KakaoIcon } from './kakao';
 export { default as LoadingIcon } from './loading';
 export { default as NaverIcon } from './naver';
+export { default as PencilIcon } from './pencil';
