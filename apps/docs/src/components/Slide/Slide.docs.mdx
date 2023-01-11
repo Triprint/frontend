@@ -1,0 +1,35 @@
+import { ArgsTable, Canvas, Story, Source, PRIMARY_STORY } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+# Slide
+
+이미지 또는 다양한 Slide를 만들기 위한 컴포넌트
+
+[Swiper](https://swiperjs.com/react) 라이브러리에 stitches 및 Compound Component 패턴에 맞게 재구성
+
+<Canvas withToolbar withSource="none">
+  <Story id="components-slide--base" />
+</Canvas>
+
+## Props
+
+아래는 자주 사용하는 Props들만을 정리
+
+조금 더 자세한 Props들은 [Swiper Documentation](https://swiperjs.com/react#swiper-props) 참조
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Structure
+
+<Source
+  language="tsx"
+  format
+  code={dedent`
+    <Slide.Root>
+      <Slide.Item />
+      <Slide.Item />
+      <Slide.Item />
+      <Slide.Navigation />
+    </Slide.Root>
+  `}
+/>
